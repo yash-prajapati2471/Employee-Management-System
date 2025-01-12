@@ -9,6 +9,7 @@ class RegisterForm(forms.ModelForm):
         model = register
         fields = ['fullname','username','email','phone','gender','password']
 
+
     def clean(self):
         cleaned_data = super(RegisterForm,self).clean()
         password = cleaned_data.get('password')

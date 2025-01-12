@@ -37,7 +37,8 @@ class register(AbstractBaseUser):
     username = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     phone = models.IntegerField()
-    gender = models.CharField(max_length=100)
+    GENDER_CHOICES = [('male','Male'),('female','Female'),('prefer_not_to_say','Prefer not to say')]
+    gender = models.CharField(max_length=20,choices=GENDER_CHOICES,default='prefer_not_to_say')
 
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee management system | code by yash</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <style>
+      form .signup-link {
+        color: #262626;
+        margin-top: 20px;
+        text-align: center;
+      }
+      form .signup-link a {
+        color: #4158d0;
+        text-decoration: none;
+      }
+    </style>
+    <!-- =========================== this is alertify message link css =========================== -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- =======================================end here =========================================== -->
+  </head>
+  <body>
+    <div class="container">
+      <!-- Title section -->
+      <div class="title">Login</div>
+      <div class="content">
+        <!-- Registration form -->
+        <form action="#">
+          <div class="user-details">
+            <!-- Input for Email -->
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter your email" required />
+            </div>
+            <!-- Input for Password -->
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="text" placeholder="Enter your password" required />
+            </div>
+            <!-- Input for Confirm Password -->
+          </div>
+          <!-- Submit button -->
+          <div class="button">
+            <input type="submit" value="Login" />
+          </div>
+          <div class="signup-link">
+            Don't have an account? <a href="{% url 'register' %}">Register now</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+  <script type="">
+        alertify.set('notifier','position', 'top-right');
+        {% for msg in messages %}
+            alertify.success('{{ msg }}');
+        {% endfor %}
+    </script>
+</html>
